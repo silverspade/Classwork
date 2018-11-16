@@ -21,7 +21,7 @@ public class BankAccount {
 		}
 	}
 	
-	public int withdraw (double amount) {
+	public int withdrawAble (double amount) {
 		if (this.balance == 0) {
 			return -1;
 		} else if (amount < 0) {
@@ -30,6 +30,12 @@ public class BankAccount {
 			return 0;
 		}  else {
 			return 2;
+		}
+	}
+	
+	public void withdraw(double amount) {
+		if(withdrawAble(amount) == 2) {
+			this.balance = balance - amount;
 		}
 	}
 	
