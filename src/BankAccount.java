@@ -13,7 +13,7 @@ public class BankAccount {
 	}
 	
 	public int deposit (double amount) {
-		if (amount <= 0) {
+		if (amount < 0) {
 			return 0;
 		} else {
 			this.balance = balance + amount;
@@ -22,14 +22,13 @@ public class BankAccount {
 	}
 	
 	public int withdraw (double amount) {
-		if (balance == 0) {
+		if (this.balance == 0) {
 			return -1;
-		} else if (amount > balance) {
-			return 0;
-		} else if (amount <= 0) {
+		} else if (amount < 0) {
 			return 1;
-		} else {
-			this.balance = balance - amount;
+		} else if (amount > this.balance) {
+			return 0;
+		}  else {
 			return 2;
 		}
 	}

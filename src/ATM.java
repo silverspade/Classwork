@@ -64,14 +64,10 @@ public class ATM {
 				System.out.println("Please enter the amount you'd like to withdraw: ");
 				amount = in.nextDouble();
 				while (userBank.withdraw(amount) == 1 || userBank.withdraw(amount) == 0) {
-					if (userBank.withdraw(amount) == 0) {
-						System.out.println("Insufficient funds. Please enter a valid number: ");
-						amount = in.nextDouble();
-					} else {
-						System.out.println("Invalid number. Please enter a valid number: ");
-						amount = in.nextDouble();
-					}
-				}
+					System.out.println("Invalid number. Please enter a valid number: ");
+					amount = in.nextDouble();
+				} 
+				userBank.setBalance(userBank.getBalance() - amount);
 				System.out.println("Withdrawal sucessful. Your new balance is: $" + userBank.getBalance());
 				System.out.println("==================================");
 				break;
